@@ -1,7 +1,9 @@
 from typing import Any
 from django.db.models.query import QuerySet
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import ListView , DetailView
+from django.views.generic import ListView , DetailView , View
+
+from .forms import CommentForm
 
 from .models import Post
 
@@ -53,10 +55,28 @@ class AllPostsView(ListView):
 #       "post_tags": identified_post.tags.all()
 #     })
     
-class SinglePostView(DetailView):
-    template_name = "blog/post-detail.html"
-    model = Post
+class SinglePostView(View):
+    def is_stored_post(self, request, post_id):
+        stored_posts = request.session.get("stored_posts")
+        if stored_posts is not None:
+          is_saved_for_later = post_id in stored_posts
+        else:
+          is_saved_for_later = False
 
+        return is_saved_for_later
+
+    def get(self, request, slug):
+        post = Post.objects.get(slug=slug)
+        
+        context = {
+            "post": post,
+            "post_tags": post.tags.all(),
+            # here we have cretaed a form for single post view  and pass it in html 
+            "comment_form": CommentForm(),
+            "comments": post.comments.all().order_by("-id"),
+            "saved_for_later": self.is_stored_post(request, post.id)
+        }
+        return render(request, "blog/post-detail.html", context)
    
         
 
