@@ -86,7 +86,7 @@ class SinglePostView(View):
         if comment_form.is_valid():
             # do not create directly in db instead crete new model instance 
             comment = comment_form.save(commit=False)
-            # build relations between post and comment 
+            # build relations between post and comment  one to one 
             comment.post = post
             comment.save()
 

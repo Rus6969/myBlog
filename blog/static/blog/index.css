@@ -73,3 +73,26 @@
   font-size: 1.5rem;
   color: #353535;
 }
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 10px;
+  background-color: #ffffff;
+  color: #000000; /* Black text color */
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: #707070; /* Darker gray background color on hover */
+  color: #ffffff; /* White text color on hover */
+}
+
+#appointment-btn-container {
+  text-align: right; /* Aligns the container to the right */
+  margin-top: 10px; /* Moves the container a little up */
+  margin-bottom: 20px; /* Adds some spacing between the container and the section */
+}
+
+

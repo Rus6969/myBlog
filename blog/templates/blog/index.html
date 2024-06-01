@@ -13,14 +13,17 @@ My Blog
 {% block content %}
 <section id="welcome">
   <header>
-    <img src="{% static "blog/images/Ruslan.jpg" %}" alt="Ruslan - The Author Of This Blog" />
-    <h2>Ruslan Interview Support </h2>
+    <img src="{% static "blog/images/Ruslan.jpg" %}" alt="Russell - The Author Of This Blog" />
+    <h2>Russell's Interview Support </h2>
   </header>
-  <p>Hi, I am Ruslan and I love to blog about tech and the world!</p>
+  <p>Hi, I am Russell  and I will try to find your first job !</p>
+  <div id="appointment-btn-container">
+    <a href="mailto:russellwork4515@gmail.com" class="btn">Book an Appointment</a>
+  </div>
 </section>
 
 <section id="latest-posts">
-  <h2>My Latest Thoughts</h2>
+  <h2>My Latest POSTS</h2>
 
   <ul>
     {% for post in posts %}
