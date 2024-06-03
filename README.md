@@ -19,10 +19,7 @@ Sure, here's a template for a README file for your Django web application reposi
 ## Project Description
 This is a Django web application designed to [brief description of what your app does]. The application provides [key features and functionalities].
 
-## Features
-- Feature 1: [description]
-- Feature 2: [description]
-- Feature 3: [description]
+
 
 ## Installation
 Follow these steps to set up the project on your local machine.
